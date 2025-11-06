@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Técnico - Detalles de Marca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .brand-hero {
+            background: white;
+            color: var(--turquoise);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1;
+        }
+        
+        .brand-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand-main-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+        
+        .brand-logo-large {
+            width: 200px;
+            height: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #dc3545;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-item h5 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 90px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--turquoise);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: var(--turquoise-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(64, 224, 208, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-wrench text-primary me-2"></i>
+                Servicio Técnico Autorizado Alicante
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#marcas">Marcas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Brand Hero Section -->
+    <section class="brand-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="brand-logo-container text-center">
+                        <img id="brandLogo" class="brand-logo-large" alt="Brand Logo">
+                        <h1 id="brandName" class="display-4 fw-bold mb-4"></h1>
+                        <p class="lead mb-4">
+                            Servicio técnico especializado y autorizado. Más de 15 años de experiencia 
+                            reparando electrodomésticos de esta marca con garantía de 6 meses.
+                        </p>
+                        <div class="hero-features mb-4">
+                            <div class="feature-item mb-2">
+                                <i class="fas fa-check-circle text-danger me-2"></i>
+                                Técnicos certificados
+                            </div>
+                            <div class="feature-item mb-2">
+                                <i class="fas fa-check-circle text-danger me-2"></i>
+                                Repuestos originales
+                            </div>
+                            <div class="feature-item mb-2">
+                                <i class="fas fa-check-circle text-danger me-2"></i>
+                                Servicio en 24-48h
+                            </div>
+                        </div>
+                        <a href="index.html#contacto" class="btn btn-danger btn-lg me-3">Solicitar Reparación</a>
+                        <a href="tel:+34667712092" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>+34667712092</a>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img id="brandMainImage" class="brand-main-image" src="bosch-presentation.jpeg" alt="Brand Main Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Servicios Especializados</h2>
+                    <p class="lead">Reparamos todos los electrodomésticos de esta marca</p>
+                </div>
+            </div>
+            
+            <div class="service-grid">
+                <div class="service-item">
+                    <h5><i class="fas fa-tshirt text-danger me-2"></i>Lavadoras y Secadoras</h5>
+                    <p>Reparación completa de lavadoras, secadoras y lavasecadoras. Problemas de centrifugado, drenaje, calentamiento y más.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Cambio de bomba de agua</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Reparación de tambor</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de calentamiento</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h5><i class="fas fa-utensils text-danger me-2"></i>Lavavajillas</h5>
+                    <p>Servicio técnico especializado en lavavajillas integrados y de libre instalación de esta marca.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Problemas de drenaje</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de lavado</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sensores y programación</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h5><i class="fas fa-snowflake text-danger me-2"></i>Frigoríficos</h5>
+                    <p>Reparación de frigoríficos, congeladores y equipos de frío tanto domésticos como industriales.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de refrigeración</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos y sensores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Descongelación automática</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h5><i class="fas fa-fire text-danger me-2"></i>Hornos y Cocinas</h5>
+                    <p>Reparación completa de hornos eléctricos, de gas, cocinas y placas de inducción.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Resistencias y quemadores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos de seguridad</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistemas de ventilación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="fw-bold mb-4">¿Necesitas reparar tu electrodoméstico?</h3>
+                    <p class="lead mb-4">Contacta con nosotros para un servicio rápido y profesional</p>
+                    <a href="index.html#contacto" class="btn btn-primary btn-lg me-3">Solicitar Servicio</a>
+                    <a href="tel:+34667712092" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-phone me-2"></i>Llamar Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-wrench me-2"></i>Servicio Técnico Autorizado Alicante</h5>
+                    <p class="mb-2">Tu servicio técnico de confianza desde 2008</p>
+                    <p class="mb-0">Especialistas en reparación de electrodomésticos</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="footer-contact">
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i>+34667712092</p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2"></i>serviciotecnicoalicante86@gmail.com</p>
+                        <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Alicante desde el centro a 30km alrededor</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Servicio Técnico Autorizado Alicante. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/brand-detail.js"></script>
+</body>
+</html>

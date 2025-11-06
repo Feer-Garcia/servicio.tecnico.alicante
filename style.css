@@ -1,0 +1,23 @@
+body {
+    background-color: #1DE9B6; /* Turquesa */
+    color: #fff; /* Letras blancas */
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li, span, label, input, button {
+    color: #fff !important;
+}
+
+input, textarea, select, button {
+    background-color: #13bfa6;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+a {
+    text-decoration: underline;
+}
+
+::placeholder {
+    color: #e0f7fa;
+    opacity: 1;
+}
