@@ -1,0 +1,798 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #333333;
+    --dark-color: #000000;
+    --light-gray: #ffffff;
+    --turquoise: #000000;
+    --turquoise-light: #333333;
+    --turquoise-dark: #000000;
+    --border-radius: 8px;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    background-color: white;
+    font-weight: 400;
+}
+
+/* Navegación */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    background: white !important;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--dark-color) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background: rgba(0, 168, 204, 0.05);
+    transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    width: 100%;
+    padding: 80px 0;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: white;
+    z-index: 1;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/images/appliances/servicio-profesional.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 120px;
+}
+
+.hero-content h1 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.hero-content .lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-icon {
+    font-size: 15rem;
+    opacity: 0.8;
+    color: var(--turquoise);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Service Cards */
+.service-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 168, 204, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--turquoise) 0%, var(--turquoise-light) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: #f8f9fa;
+}
+
+.appliance-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .appliance-image {
+    transform: scale(1.05);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--turquoise), var(--turquoise-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.service-card h4 {
+    color: var(--turquoise);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+}
+
+.service-card p {
+    color: var(--turquoise);
+    line-height: 1.7;
+}
+
+/* Brand Cards */
+.brand-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #eee;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--turquoise);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(64, 224, 208, 0.03) 0%, rgba(72, 229, 222, 0.03) 100%);
+    z-index: 1;
+}
+
+.brand-card:hover::before {
+    opacity: 1;
+}
+
+.brand-card:hover {
+    border-color: var(--turquoise);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.brand-logo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-image {
+    max-height: 40px;
+    max-width: 80px;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.brand-card:hover .brand-image {
+    filter: brightness(1);
+}
+
+.brand-card strong {
+    position: relative;
+    z-index: 2;
+    font-size: 0.8rem;
+    color: var(--turquoise);
+    font-weight: 600;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--turquoise);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--turquoise);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+.testimonial-card strong {
+    color: var(--turquoise);
+    font-weight: 600;
+}
+
+.stars i {
+    margin-right: 3px;
+}
+
+/* Contact Section */
+.contact-info {
+    padding: 2rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-icon {
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-light) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-details h5 {
+    margin-bottom: 0.5rem;
+    color: var(--turquoise);
+    font-weight: 600;
+}
+
+.contact-details p {
+    margin: 0;
+    color: var(--turquoise);
+    line-height: 1.5;
+}
+
+.contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border: 1px solid #ddd;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 0.875rem 1.25rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: white;
+}
+
+.form-control:focus {
+    border-color: var(--turquoise);
+    box-shadow: 0 0 0 0.25rem rgba(64, 224, 208, 0.15);
+    background: white;
+}
+
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 0.875rem 1.25rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: white;
+}
+
+.form-select:focus {
+    border-color: var(--turquoise);
+    box-shadow: 0 0 0 0.25rem rgba(64, 224, 208, 0.15);
+    background: white;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0.875rem 2.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+.btn-primary {
+    background: var(--turquoise);
+    border: none;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    background: var(--turquoise-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--turquoise);
+    color: var(--turquoise);
+    background: white;
+}
+
+.btn-outline-primary:hover {
+    background: var(--turquoise);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--turquoise);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color) !important;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    color: #adb5bd;
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* Scroll suave y mejoras de performance */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* Elementos con glassmorphism */
+.bg-light {
+    background: white !important;
+}
+
+/* Secciones con mejor espaciado */
+section {
+    padding: 5rem 0 !important;
+}
+
+@media (min-width: 992px) {
+    section {
+        padding: 6rem 0 !important;
+    }
+}
+
+/* Títulos mejorados */
+.display-4, .display-5 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--turquoise);
+}
+
+/* Lead mejorado */
+.lead {
+    font-weight: 500;
+    color: var(--turquoise);
+    line-height: 1.7;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero-icon {
+        font-size: 8rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .hero-features {
+        align-items: center;
+    }
+    
+    .display-4 {
+        font-size: 2.2rem;
+    }
+    
+    .display-5 {
+        font-size: 1.9rem;
+    }
+    
+    .service-card,
+    .contact-form {
+        margin-bottom: 2rem;
+    }
+    
+    .contact-item {
+        text-align: center;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    section {
+        padding: 4rem 0 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content {
+        padding-top: 80px;
+    }
+    
+    .brand-card {
+        font-size: 0.8rem;
+        height: 90px;
+        padding: 1rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .contact-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 3rem 0 !important;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    .contact-form {
+        padding: 2rem;
+    }
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.service-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.testimonial-card {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.brand-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.contact-item:nth-child(odd) {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.contact-item:nth-child(even) {
+    animation: slideInRight 0.8s ease-out;
+}
+
+/* Hover effects mejorados */
+.service-card,
+.testimonial-card,
+.brand-card,
+.contact-form {
+    will-change: transform;
+}
+
+/* Animación de texto gradient */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Removed gradient animation for cleaner look */
+
+/* Loading states */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Focus states para accesibilidad */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: none;
+}
+
+/* Mejoras de contraste */
+.text-muted {
+    color: var(--turquoise) !important;
+}
+
+/* Estados de validación del formulario */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.is-valid {
+    border-color: var(--secondary-color);
+}
+
+/* Special effects for appliance names */
+.appliance-name-effect {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: -0.02em;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.appliance-name-effect::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #000000, transparent);
+    animation: underlineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineGlow {
+    0% {
+        opacity: 0.5;
+        width: 30%;
+    }
+    100% {
+        opacity: 1;
+        width: 60%;
+    }
+}
+
+/* Special effects for brand names */
+.brand-name-effect {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    display: inline-block;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.brand-name-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.brand-card:hover .brand-name-effect::before {
+    transform: translateX(100%);
+}
+
+.brand-card:hover .brand-name-effect {
+    transform: scale(1.05);
+}
+
+.hero-background {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/images/appliances/servicio-profesional.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
