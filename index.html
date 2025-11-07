@@ -71,6 +71,59 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <!-- Agregar los estilos en el head -->
+    <style>
+        /* Estilos para botones flotantes */
+        .social-buttons {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-button.whatsapp:hover {
+            color: #25D366;
+        }
+
+        .social-button.call:hover {
+            color: #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .social-buttons {
+                right: 15px;
+            }
+            .social-button {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navegación -->
@@ -209,12 +262,13 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-card h-100 text-center">
-                        <div style="width: 85%; margin: 0 auto; overflow: hidden;">
-                            <img src="./images/appliances/campana-extractora.jpg" 
-                                 alt="Campana Extractora" 
-                                 style="width: 100%; 
-                                        object-fit: cover; 
-                                        border-radius: 8px; 
+                        <div style="width: 38%; margin: 0 auto;">
+                            <img src="./images/brand-presentations/appliances/campana.jpg.webp"
+                                 alt="Campana Extractora"
+                                 style="width: 100%;
+                                        height: auto;
+                                        object-fit: contain;
+                                        border-radius: 8px;
                                         box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                         </div>
                         <h4 class="appliance-name-effect mt-4">Campanas</h4>
@@ -476,6 +530,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botones de redes sociales flotantes -->
+<div class="social-buttons">
+    <a href="https://wa.me/34667712092" class="social-button whatsapp" target="_blank" title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+34667712092" class="social-button call" title="Llamar ahora">
+        <i class="fas fa-phone"></i>
+    </a>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
