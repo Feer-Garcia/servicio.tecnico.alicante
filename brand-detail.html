@@ -54,9 +54,14 @@
         
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         .service-item {
@@ -100,6 +105,82 @@
             background: var(--turquoise-light);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(64, 224, 208, 0.4);
+        }
+
+        /* Estilos para botones flotantes */
+        .social-buttons {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-button.whatsapp:hover {
+            color: #25D366;
+        }
+
+        .social-button.call:hover {
+            color: #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .social-buttons {
+                right: 15px;
+            }
+            .social-button {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Estilo para el número de teléfono */
+        .phone-button {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            color: #000000;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: #000000;
+        }
+
+        .phone-button i {
+            color: #dc3545;
         }
     </style>
 </head>
@@ -157,8 +238,8 @@
                             </div>
                         </div>
                         <a href="index.html#contacto" class="btn btn-danger btn-lg me-3">Solicitar Reparación</a>
-                        <a href="tel:667712092" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-phone me-2"></i>667712092</a>
+                        <a href="tel:+34667712092" class="phone-button">
+                            <i class="fas fa-phone"></i>+34 667 712 092
                         </a>
                     </div>
                 </div>
@@ -181,9 +262,123 @@
                 </div>
             </div>
             
-            <div class="service-grid">
+            <style>
+                .service-grid-3x3 {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1.5rem;
+                    margin-top: 2rem;
+                }
+                
+                @media (max-width: 992px) {
+                    .service-grid-3x3 {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+                
+                @media (max-width: 576px) {
+                    .service-grid-3x3 {
+                        grid-template-columns: 1fr;
+                    }
+                }
+                
+                .service-item-compact {
+                    background: white;
+                    padding: 1.5rem;
+                    border-radius: 10px;
+                    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                    border-left: 4px solid #dc3545;
+                    transition: transform 0.3s ease;
+                    height: 100%;
+                }
+                
+                .service-item-compact:hover {
+                    transform: translateY(-5px);
+                }
+                
+                .service-item-compact h5 {
+                    font-size: 1.1rem;
+                    color: #dc3545;
+                    margin-bottom: 1rem;
+                }
+                
+                .service-item-compact p {
+                    font-size: 0.9rem;
+                    margin-bottom: 1rem;
+                }
+                
+                .service-item-compact ul {
+                    font-size: 0.85rem;
+                }
+                
+                .service-item-compact li {
+                    margin-bottom: 0.5rem;
+                }
+            </style>
+            
+            <div class="service-grid-3x3">
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-snowflake text-danger me-2"></i>Aires Acondicionados</h5>
+                    <p>Instalación y reparación de aires acondicionados. Mantenimiento preventivo y correctivo.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Instalación y montaje</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Carga de gas refrigerante</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Limpieza y mantenimiento</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-fire text-danger me-2"></i>Calentadores</h5>
+                    <p>Reparación e instalación de calentadores de agua y sistemas de agua caliente.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Reparación de termos eléctricos</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Mantenimiento de calentadores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Instalación y sustitución</li>
+                    </ul>
+                </div>
+
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-tshirt text-danger me-2"></i>Lavadoras y Secadoras</h5>
+                    <p>Reparación completa de lavadoras y secadoras. Servicio técnico especializado.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Cambio de bomba de agua</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Reparación de tambor</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de calentamiento</li>
+                    </ul>
+                </div>
+
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-utensils text-danger me-2"></i>Lavavajillas</h5>
+                    <p>Servicio técnico especializado en lavavajillas integrados y de libre instalación.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Problemas de drenaje</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de lavado</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sensores y programación</li>
+                    </ul>
+                </div>
+
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-snowflake text-danger me-2"></i>Frigoríficos</h5>
+                    <p>Reparación de frigoríficos y congeladores domésticos e industriales.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de refrigeración</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos y sensores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Descongelación automática</li>
+                    </ul>
+                </div>
+
+                <div class="service-item-compact">
+                    <h5><i class="fas fa-fire text-danger me-2"></i>Hornos y Cocinas</h5>
+                    <p>Reparación de hornos eléctricos, de gas y placas de inducción.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Resistencias y quemadores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos de seguridad</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistemas de ventilación</li>
+                    </ul>
+                </div>
+
                 <div class="service-item">
-                    <h5><i class="fas fa-wind text-danger me-2"></i>Aires Acondicionados</h5>
+                    <h5><i class="fas fa-snowflake text-danger me-2"></i>Aires Acondicionados</h5>
                     <p>Instalación y reparación de aires acondicionados. Mantenimiento preventivo y correctivo de sistemas de climatización.</p>
                     <ul class="list-unstyled">
                         <li><i class="fas fa-check text-danger me-2"></i>Instalación y montaje</li>
@@ -192,6 +387,16 @@
                     </ul>
                 </div>
                 
+                <div class="service-item">
+                    <h5><i class="fas fa-utensils text-danger me-2"></i>Lavavajillas</h5>
+                    <p>Servicio técnico especializado en lavavajillas integrados y de libre instalación de esta marca.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Problemas de drenaje</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de lavado</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sensores y programación</li>
+                    </ul>
+                </div>
+
                 <div class="service-item">
                     <h5><i class="fas fa-fire text-danger me-2"></i>Calentadores</h5>
                     <p>Reparación e instalación de calentadores de agua. Servicio especializado en sistemas de agua caliente.</p>
@@ -203,12 +408,22 @@
                 </div>
 
                 <div class="service-item">
-                    <h5><i class="fas fa-tshirt text-danger me-2"></i>Lavadoras y Secadoras</h5>
-                    <p>Reparación completa de lavadoras, secadoras y lavasecadoras. Problemas de centrifugado, drenaje, calentamiento y más.</p>
+                    <h5><i class="fas fa-snowflake text-danger me-2"></i>Frigoríficos</h5>
+                    <p>Reparación de frigoríficos, congeladores y equipos de frío tanto domésticos como industriales.</p>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-check text-danger me-2"></i>Cambio de bomba de agua</li>
-                        <li><i class="fas fa-check text-danger me-2"></i>Reparación de tambor</li>
-                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de calentamiento</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistema de refrigeración</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos y sensores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Descongelación automática</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h5><i class="fas fa-fire text-danger me-2"></i>Hornos y Cocinas</h5>
+                    <p>Reparación completa de hornos eléctricos, de gas, cocinas y placas de inducción.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-danger me-2"></i>Resistencias y quemadores</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Termostatos de seguridad</li>
+                        <li><i class="fas fa-check text-danger me-2"></i>Sistemas de ventilación</li>
                     </ul>
                 </div>
                 
@@ -260,6 +475,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Botones de redes sociales flotantes -->
+    <div class="social-buttons">
+        <a href="https://wa.me/34667712092" class="social-button whatsapp" target="_blank" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+34667712092" class="social-button call" title="Llamar ahora">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
